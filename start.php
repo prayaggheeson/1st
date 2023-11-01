@@ -10,11 +10,15 @@ VALUES ('Mary', 'Moe', 'mary@example.com');";
 $sql .= "INSERT INTO 1stproject (name, address, email)
 VALUES ('Julie', 'Dooley', 'julie@example.com')";
 
+
+//cretae a new record in the database
 // if ($conn->query($sql) === TRUE) {
 //   echo "New record created successfully";
 // } else {
 //   echo "Error: " . $sql . "<br>" . $conn->error;
 // }
+
+// get id from database
 // if ($conn->query($sql) === TRUE) {
 //     $last_id = $conn->insert_id;
 //     echo "New record created successfully. Last inserted ID is: " . $last_id;
@@ -28,6 +32,8 @@ VALUES ('Julie', 'Dooley', 'julie@example.com')";
 //     echo "Error: " . $sql . "<br>" . $conn->error;
 //   }
 
+
+// select id from database
 // $sql = "SELECT id, name, address, email  FROM 1stproject";
 // $result = $conn->query($sql);
 
@@ -40,6 +46,8 @@ VALUES ('Julie', 'Dooley', 'julie@example.com')";
 //     echo "0 results";
 //   }
 
+
+// deleted a selected id from database
 // $sql = "DELETE FROM 1stproject WHERE id=3";
 
 // if ($conn->query($sql) === TRUE) {
@@ -48,6 +56,7 @@ VALUES ('Julie', 'Dooley', 'julie@example.com')";
 //   echo "Error deleting record: " . $conn->error;
 // }
 
+//updated a selected if from database
 // $sql = "UPDATE 1stproject SET name='prayag' WHERE id=2";
 
 // if ($conn->query($sql) === TRUE) {
@@ -57,6 +66,15 @@ VALUES ('Julie', 'Dooley', 'julie@example.com')";
 // }
 
 
+$sql = "SELECT * FROM 1stproject WHERE address='doe'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  echo "address already exist";
+  
+} else {
+  echo "data does not exist";
+}
+
   
   $conn->close();
-?>
